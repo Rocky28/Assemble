@@ -1,0 +1,13 @@
+
+/* For generic page styles. Not for sliders. */
+
+body {background:rgb(67,47,47);font:normal 0.9em Arial; margin:0; padding:0; padding-bottom:0px;}
+h2 {display:inline;}
+.div1, .div2 {width:820px;margin:0 auto;}
+.div1 {margin-top:0px;margin-bottom:0px;text-align:center;line-height:20px;}
+.div1 P {font-size:18px;}
+.div1 a, .div2 a {color:#07C;}
+.div2 {margin-left:-330px;
+margin-top:-30;}
+.div2 li {padding-top:6px;padding-bottom:6px;}
+.floatLeft {float:left;}
