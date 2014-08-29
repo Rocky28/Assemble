@@ -41,16 +41,8 @@ public class getcompo extends HttpServlet {
             HttpSession s=request.getSession(true);
             String component=request.getParameter("cmp");
             String pr=request.getParameter("pr");
-            String p1="";
-            for(int i=0;i<pr.length();i++)
-            {
-                char ch=pr.charAt(i);
-                if(ch=='0'||ch=='1'||ch=='2'||ch=='3'||ch=='4'||ch=='5'||ch=='6'||ch=='7'||ch=='8'||ch=='9')
-                {
-                    p1=p1+ch;
-                }
-            }
-            ResultSet rs=ob.srchCompo(component, p1);
+            System.out.println(component+pr);
+            ResultSet rs=ob.srchCompo(component, pr);
             s.setAttribute("result", rs);
             response.sendRedirect("componentpre.jsp");
             

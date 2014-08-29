@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Assemble.AssembleBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -103,9 +105,9 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your Ssd : </p>
-      <form>
+      <form method="post" action="selssd">
           <table>
-             <tr><td><select name="">
+             <tr><td><select name="choosessd">
                         <option value="default">Choose Your Item</option>
                         <option value="SAMSUNG 840 SERIES 120GB SSD">SAMSUNG 840 SERIES 120GB SSD</option>
                         <option value="SAMSUNG 840 SERIES 250GB SSD">SAMSUNG 840 SERIES 250GB SSD</option>
@@ -146,12 +148,18 @@
                         <option value="CORSAIR FORCE SERIES GS 180GB SSD">CORSAIR FORCE SERIES GS 180GB SSD</option>                        
                      </select>
             </td></tr> 
-             <tr><td><input type="submit" value="Preview"></td><td><input type="image" src="success.png"></td></tr>
+             <tr><td><input name="s1" type="submit" value="Preview"></td><td><a href="assemble9.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
               
           </table>
       </form>
       
   </div>
+  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Ssd"); while(rs.next()){%>
+      <img src="<% out.println(rs.getString(5));%>">
+          <h2><% out.println(rs.getString(2));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
+          <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a>
+      <% } %></div>
    <!-- Start of Page Footer -->
   <div id="page_footer">
     <div id="product_brands">

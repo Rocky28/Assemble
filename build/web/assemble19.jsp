@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Assemble.AssembleBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -103,9 +105,9 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your Tv Tuner Card : </p>
-      <form>
+      <form action="seltvtuner" method="post">
           <table>
-             <tr><td><select name="">
+             <tr><td><select name="choosetvtuner">
                         <option value="default">Choose Your Item</option>
                         <option value="ENTER E-210E USB TV TUNER STICK">ENTER E-210E USB TV TUNER STICK</option>
                         <option value="IBALL CLARO CTV27 TV TUNER CARD">IBALL CLARO CTV27 TV TUNER CARD</option>
@@ -126,12 +128,18 @@
                         <option value="ZEBRONICS ZEB-UP2011 USB EXTERNAL TV TUNER CARD">ZEBRONICS ZEB-UP2011 USB EXTERNAL TV TUNER CARD</option>
                      </select>
             </td></tr> 
-             <tr><tr><td><input type="submit" value="Preview"></td><td><input type="image" src="success.png"></td></tr>
+             <tr><tr><td><input name="s1" type="submit" value="Preview"></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
               
           </table>
       </form>
       
   </div>
+  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Tvtuner"); while(rs.next()){%>
+      <img src="<% out.println(rs.getString(5));%>">
+          <h2><% out.println(rs.getString(2));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
+          <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a>
+      <% } %></div>
    <!-- Start of Page Footer -->
   <div id="page_footer">
     <div id="product_brands">

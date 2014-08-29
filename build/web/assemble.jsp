@@ -12,8 +12,8 @@
   <!-- Start of Page Header -->
   <div id="page_header">
     <div id="page_heading">
-      <h1><span>ASSEMBLE.NET</span></h1>
-      <h2><span>COME AND ASSEMBLE YOUR PC IN MINUTES</span></h2>
+      <h1>ASSEMBLE.NET</h1>
+      <h2>COME AND ASSEMBLE YOUR PC IN MINUTES</h2>
     </div>
     <div id="page_headerlinks">
       <ul>
@@ -39,12 +39,12 @@
   <!-- Start of Page Menu -->
   <div id="page_menu">
     <ul>
-      <li><a href="http://all-free-download.com/free-website-templates/">Home</a></li>
-      <li><a href="http://all-free-download.com/free-website-templates/">Our Store</a></li>
-      <li><a href="http://all-free-download.com/free-website-templates/">Products</a></li>
-      <li><a href="http://all-free-download.com/free-website-templates/">Services</a></li>
-      <li><a href="http://all-free-download.com/free-website-templates/">Promotion</a></li>
-      <li class="last"><a href="http://all-free-download.com/free-website-templates/">Contact</a></li>
+      <li><a href="home.jsp">Home</a></li>
+      <li><a href="component.jsp">Components</a></li>
+      <li><a href="assemble.jsp">Assemble</a></li>
+      
+      <li><a href="#">About Us</a></li>
+      <li class="last"><a href="#">Feedback</a></li>
     </ul>
   </div>
        
@@ -105,12 +105,12 @@
       <p class="p1">Assemble your Computer</p><br>
       <p class="p2">Let us help you a bit</p><br>
       <p class="p3">Which type of Desktop you are Assembling :</p>
-      <form>
+      <form method="post" action="typeselect">
           <table>
-             <tr><td><select name="">
-                        <option name="">Home</option>
-                        <option name="">Gaming</option>
-                        <option name="">Professional</option></select>
+             <tr><td><select name="type">
+                        <option value="Home">Home</option>
+                        <option value="Game">Gaming</option>
+                        <option name="Pro">Professional</option></select>
             </td></tr> 
              <tr><td><input type="image" src="next.jpg"></td></tr>
               

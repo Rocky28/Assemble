@@ -12,8 +12,8 @@
   <!-- Start of Page Header -->
   <div id="page_header">
     <div id="page_heading">
-      <h1><span>ASSEMBLE.NET</span></h1>
-      <h2><span>COME AND ASSEMBLE YOUR PC IN MINUTES</span></h2>
+      <h1>ASSEMBLE.NET</h1>
+      <h2>COME AND ASSEMBLE YOUR PC IN MINUTES</h2>
     </div>
     <div id="page_headerlinks">
       <ul>
@@ -39,12 +39,12 @@
   <!-- Start of Page Menu -->
   <div id="page_menu">
     <ul>
-      <li><a href="http://all-free-download.com/free-website-templates/">Home</a></li>
-      <li><a href="http://all-free-download.com/free-website-templates/">Our Store</a></li>
-      <li><a href="http://all-free-download.com/free-website-templates/">Products</a></li>
-     
-      <li><a href="http://all-free-download.com/free-website-templates/">Promotion</a></li>
-      <li class="last"><a href="http://all-free-download.com/free-website-templates/">Contact</a></li>
+      <li><a href="home.jsp">Home</a></li>
+      <li><a href="component.jsp">Components</a></li>
+      <li><a href="assemble.jsp">Assemble</a></li>
+      
+      <li><a href="#">About Us</a></li>
+      <li class="last"><a href="#">Feedback</a></li>
     </ul>
   </div>
   <!-- End of Page Menu -->
@@ -105,33 +105,33 @@
             <form name="compn" action="getcompo" method="post">
                 <table>
                     <tr><td width="40%"><select name="cmp">
-                                <option name="hjfj">Select your component</option>
-                                <option name="hjfj">Cabinets</option>
-                                <option name="hjfj">Motherboards</option>
-                                <option name="hjfj">Processors</option>
-                                <option name="hjfj">Ram's</option>
-                                <option name="hjfj">Internal Hdd's</option>
-                                <option name="hjfj">External Hdd's</option>
-                                <option name="hjfj">Ssd's</option>
-                                <option name="hjfj">Internal Writer</option>
-                                <option name="hjfj">External Writer</option>
-                                <option name="hjfj">Monitor</option>
-                                <option name="hjfj">Graphics Card</option>
-                                <option name="hjfj">Keyboard</option>
-                                <option name="hjfj">Mouse</option>
-                                <option name="hjfj">Psu's</option>
-                                <option name="hjfj">Sound Card</option>
-                                <option name="hjfj">Speaker</option>
-                                <option name="hjfj">Webcam</option>
-                                <option name="hjfj">Ups</option>
-                                <option name="hjfj">Tv Tuner Card</option>
+                                <option value="">Select your component</option>
+                                <option value="Cabinets">Cabinets</option>
+                                <option value="Motherboards">Motherboards</option>
+                                <option value="Processors">Processors</option>
+                                <option value="Ram">Ram's</option>
+                                <option value="Internalhdd">Internal Hdd's</option>
+                                <option value="Externalhdd">External Hdd's</option>
+                                <option value="Ssd">Ssd's</option>
+                                <option value="Internalwriter">Internal Writer</option>
+                                <option value="Externalwriter">External Writer</option>
+                                <option value="Monitor">Monitor</option>
+                                <option value="Graphicscard">Graphics Card</option>
+                                <option value="Keyboard">Keyboard</option>
+                                <option value="Mouse">Mouse</option>
+                                <option value="Psu">Psu's</option>
+                                <option value="Soundcard">Sound Card</option>
+                                <option value="Speaker">Speaker</option>
+                                <option value="Webcam">Webcam</option>
+                                <option value="Ups">Ups</option>
+                                <option value="Tvtuner">Tv Tuner Card</option>
                             </select></td><td width="40%"><select name="pr">
-                                    <option name="hdjas">Select your price range</option>
-                                    <option name="hdjas">Less than 1000</option>
-                                    <option name="hdjas">Less than 3000</option>
-                                    <option name="hdjas">Less than 7000</option>
-                                    <option name="hdjas">Less than 12000</option>
-                                    <option name="hdjas">Greater than 20000</option>
+                                    <option value="">Select your price range</option>
+                                    <option value="1000">Less than 1000</option>
+                                    <option value="3000">Less than 3000</option>
+                                    <option value="7000">Less than 7000</option>
+                                    <option value="12000">Less than 12000</option>
+                                    <option value="20000">Greater than 20000</option>
                                 </select></td></tr>
                     <tr><td><input type="image" src="next.jpg"></td></tr>
                 </table>

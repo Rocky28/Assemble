@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Assemble.AssembleBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -102,9 +104,9 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your Internal Hard Disk</p>
-      <form name="frm" action="preview" method="get">
+      <form name="frm" action="selinternalhdd" method="post">
           <table>
-             <tr><td><select name="">
+             <tr><td><select name="chooseinternalhdd">
                         <option value="default">Choose Your Item</option>
                         <option value="SEAGATE BARRACUDA 1TB DESKTOP INTERNAL HDD">SEAGATE BARRACUDA 1TB DESKTOP INTERNAL HDD</option>
                         <option value="SEAGATE BARRACUDA 500GB DESKTOP INTERNAL HDD">SEAGATE BARRACUDA 500GB DESKTOP INTERNAL HDD</option>
@@ -117,13 +119,20 @@
                         <option value="SEAGATE CONSTELLATION ES 2TB DESKTOP INTERNAL HDD">SEAGATE CONSTELLATION ES 2TB DESKTOP INTERNAL HDD</option>
                         <option value="SEAGATE BARRACUDA SV-35 3TB DESKTOP INTERNAL HDD">SEAGATE BARRACUDA SV-35 3TB DESKTOP INTERNAL HDD</option>                        
                      </select>
-            </td></tr> </table>
-             <input id="img1" type="image" src="preview.gif"></form><form name="frm" action="next" method="get"><input id="img2" type="image" src=" next.jpg">
+            </td></tr>          <tr><td><input name="s1" type="submit" value="Preview"></td><td><a href="assemble7.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
               
-          
+          </table>
       </form>
       
+      
   </div>
+  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Internalhdd"); while(rs.next()){%>
+      <img src="<% out.println(rs.getString(5));%>">
+          <h2><% out.println(rs.getString(2));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
+          <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a>
+      <% } %></div>
+  
    <!-- Start of Page Footer -->
  
         </div></body>

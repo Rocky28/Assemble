@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Assemble.AssembleBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -103,9 +105,9 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your Motherboard : </p>
-      <form>
+      <form action="selmotherboard" method="post">
           <table>
-             <tr><td><select name="">
+             <tr><td><select name="choosemotherboard">
                         <option value="default">Choose Your Item</option>
                         <option value="INTEL DH61HO MOTHERBOARD">INTEL DH61HO MOTHERBOARD</option>
                         <option value="INTEL DH77EB MOTHERBOARD">INTEL DH77EB MOTHERBOARD</option>
@@ -250,18 +252,25 @@
                         <option value="MSI 760GM-P21(FX) MOTHERBOARD">MSI 760GM-P21(FX) MOTHERBOARD</option>
                         <option value="MSI Z77 MPOWER MOTHERBOARD">MSI Z77 MPOWER MOTHERBOARD</option>
                         <option value="MSI 760GM-P23(FX) MOTHERBOARD">MSI 760GM-P23(FX) MOTHERBOARD</option>
-                        <option value="MSI Z77A-GD65 MOTHERBOARD">MSI Z77A-GD65 MOTHERBOARD</option>
+                        <option value="MSI Z77A-GD65 MOTHERBOARD">MSI Z77A-GD65 MOTHERBOAReD</option>
                         <option value="MSI B75A-G43 GAMING MOTHERBOARD">MSI B75A-G43 GAMING MOTHERBOARD</option>
                         <option value="MSI Z77A-G45 GAMING MOTHERBOARD">MSI Z77A-G45 GAMING MOTHERBOARD</option>
                         <option value="MSI X58 PRO-E MOTHERBOARD">MSI X58 PRO-E MOTHERBOARD</option>                        
                      </select>
             </td></tr> 
-             <tr><td><input type="submit" value="Preview"></td><td><input type="image" src="success.png"></td></tr>
+             <tr><td><input type="submit" value="Preview" name="s1"></td><td><a href="assemble3.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="succes"></td></tr>
               
           </table>
       </form>
       
   </div>
+  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Motherboards"); while(rs.next()){%>
+      <img src="<% out.println(rs.getString(5));%>">
+          <h2><% out.println(rs.getString(2));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
+          <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a>
+      <% } %></div>
+  
    <!-- Start of Page Footer -->
   <div id="page_footer">
     <div id="product_brands">

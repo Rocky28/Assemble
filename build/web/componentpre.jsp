@@ -105,33 +105,33 @@
             <form name="compn" action="getcompo" method="post">
                 <table>
                     <tr><td width="40%"><select name="cmp">
-                                <option name="hjfj">Select your component</option>
-                                <option name="hjfj">Cabinets</option>
-                                <option name="hjfj">Motherboards</option>
-                                <option name="hjfj">Processors</option>
-                                <option name="hjfj">Ram's</option>
-                                <option name="hjfj">Internal Hdd's</option>
-                                <option name="hjfj">External Hdd's</option>
-                                <option name="hjfj">Ssd's</option>
-                                <option name="hjfj">Internal Writer</option>
-                                <option name="hjfj">External Writer</option>
-                                <option name="hjfj">Monitor</option>
-                                <option name="hjfj">Graphics Card</option>
-                                <option name="hjfj">Keyboard</option>
-                                <option name="hjfj">Mouse</option>
-                                <option name="hjfj">Psu's</option>
-                                <option name="hjfj">Sound Card</option>
-                                <option name="hjfj">Speaker</option>
-                                <option name="hjfj">Webcam</option>
-                                <option name="hjfj">Ups</option>
-                                <option name="hjfj">Tv Tuner Card</option>
-                            </select></td><td width="40%"><select name="ven">
-                                    <option name="hdjas">Select your price range</option>
-                                    <option name="hdjas">Less than Rs.1000</option>
-                                    <option name="hdjas">1000-3000</option>
-                                    <option name="hdjas">3000-7000</option>
-                                    <option name="hdjas">7000-12000</option>
-                                    <option name="hdjas">12000-20000</option>
+                                <option value="">Select your component</option>
+                                <option value="Cabinets">Cabinets</option>
+                                <option value="Motherboards">Motherboards</option>
+                                <option value="Processors">Processors</option>
+                                <option value="Ram">Ram's</option>
+                                <option value="Internalhdd">Internal Hdd's</option>
+                                <option value="Externalhdd">External Hdd's</option>
+                                <option value="Ssd">Ssd's</option>
+                                <option value="Internalwriter">Internal Writer</option>
+                                <option value="Externalwriter">External Writer</option>
+                                <option value="Monitor">Monitor</option>
+                                <option value="Graphicscard">Graphics Card</option>
+                                <option value="Keyboard">Keyboard</option>
+                                <option value="Mouse">Mouse</option>
+                                <option value="Psu">Psu's</option>
+                                <option value="Soundcard">Sound Card</option>
+                                <option value="Speaker">Speaker</option>
+                                <option value="Webcam">Webcam</option>
+                                <option value="Ups">Ups</option>
+                                <option value="Tvtuner">Tv Tuner Card</option>
+                            </select></td><td width="40%"><select name="pr">
+                                    <option value="">Select your price range</option>
+                                    <option value="1000">Less than 1000</option>
+                                    <option value="3000">Less than 3000</option>
+                                    <option value="7000">Less than 7000</option>
+                                    <option value="12000">Less than 12000</option>
+                                    <option value="20000">Greater than 20000</option>
                                 </select></td></tr>
                     <tr><td><input type="image" src="next.jpg"></td></tr>
                 </table>
@@ -139,15 +139,15 @@
             </form>
         </div>
   
-  <%      ResultSet rs=(ResultSet)s.getAttribute("result");  while(rs.next()){ %>
+  
   <div id="preview">
-      <h1>Preview</h1>
+      <h1>Preview</h1><%      ResultSet rs=(ResultSet)s.getAttribute("result");  while(rs.next()){ %>
       
       <img src="<% out.println(rs.getString(5));%>">
           <h2><% out.println(rs.getString(2));%></h2>
-          <h2 class="money"><% out.println(rs.getString(3));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
           <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a>
-      </div><% } %>
+      <% } %></div>
   
   <!-- End of component part -->
    <!-- Start of Page Footer -->

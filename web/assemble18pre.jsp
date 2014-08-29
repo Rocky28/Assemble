@@ -103,9 +103,9 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your Ups : </p>
-      <form>
+      <form action="selups">
           <table>
-             <tr><td><select name="">
+             <tr><td><select name="chooseups">
                         <option value="default">Choose Your Item</option>
                         <option value="INTEX PROTECTOR 725 UPS">INTEX PROTECTOR 725 UPS</option>
                         <option value="IBALL NIRANTAR 621V UPS">IBALL NIRANTAR 621V UPS</option>
@@ -130,17 +130,17 @@
                         <option value="INTEX 600VA UPS">INTEX 600VA UPS</option>
                      </select>
             </td></tr> 
-             <tr><tr><td><input type="submit" value="Preview"></td><td><input type="image" src="success.png"></td></tr>
+             <tr><td><input name="s1" type="submit" value="Preview"></td><td><a href="assemble2.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
               
           </table>
       </form>
-      
   </div>
-  <div id="preview">
-          <img src="<%%>">
-          <h2><%%></h2>
-          <h3><%%></h3>
-          <a href="<%%>">Click to view full description in <%%>.com</a>
+      
+      <div id="preview"><%HttpSession s=request.getSession(true);%>
+          <img src="<% out.println((String)s.getAttribute("imgurl")); %>">
+          <h2><% out.println((String)s.getAttribute("cmpname")); %></h2>
+          <h3><% out.println(s.getAttribute("price")); %></h3>
+          <a href="<% out.println((String)s.getAttribute("link")); %>">Click to view full description in Flipkart.com</a>
       </div>
    <!-- Start of Page Footer -->
   <div id="page_footer">

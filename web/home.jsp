@@ -107,14 +107,14 @@
   </div>
   <!-- End of Left Sidebar -->
   <!-- Start of Main Content Area -->
-  <div id="main_content">
+ <!-- <div id="main_content">
             <div id="cs">
                 <h2>Latest Product</h2>
                   <iframe src="demo2.html" style="width:500px;height:450px;border:0px ;" scrolling="no"></iframe><br>
             
                   <h2>New Updates</h2>
                   <iframe src="demo1.html" style="width:450px;height:100px;border:0px;" scrolling="no"></iframe>
-      </div>
+      </div>-->
       <div id="cs1">
           <p class="phead">Assemble.net</p><br>
           <p>Experience the fastest way of assembling your Desktop</p>

@@ -150,14 +150,14 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  </div>\n");
       out.write("  <!-- End of Left Sidebar -->\n");
       out.write("  <!-- Start of Main Content Area -->\n");
-      out.write("  <div id=\"main_content\">\n");
+      out.write(" <!-- <div id=\"main_content\">\n");
       out.write("            <div id=\"cs\">\n");
       out.write("                <h2>Latest Product</h2>\n");
       out.write("                  <iframe src=\"demo2.html\" style=\"width:500px;height:450px;border:0px ;\" scrolling=\"no\"></iframe><br>\n");
       out.write("            \n");
       out.write("                  <h2>New Updates</h2>\n");
       out.write("                  <iframe src=\"demo1.html\" style=\"width:450px;height:100px;border:0px;\" scrolling=\"no\"></iframe>\n");
-      out.write("      </div>\n");
+      out.write("      </div>-->\n");
       out.write("      <div id=\"cs1\">\n");
       out.write("          <p class=\"phead\">Assemble.net</p><br>\n");
       out.write("          <p>Experience the fastest way of assembling your Desktop</p>\n");

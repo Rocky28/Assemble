@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Assemble.AssembleBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -103,9 +105,9 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your Ram : </p>
-      <form>
+      <form action="selram" method="post">
           <table>
-             <tr><td><select name="">
+             <tr><td><select name="chooseram">
                         <option value="default">Choose Your Item</option>
                         <option value="KINGSTON HYPERX DDR3 8GB(1x8)GB PC RAM">KINGSTON HYPERX DDR3 8GB(1x8)GB PC RAM</option>
                         <option value="KINGSTON VALUE RAM DDR3 4GB PC RAM">KINGSTON VALUE RAM DDR3 4GB PC RAM</option>
@@ -146,12 +148,19 @@
                         <option value="CORSAIR XMS3 DDR3 4GB(1X4)GB PC RAM">CORSAIR XMS3 DDR3 4GB(1X4)GB PC RAM</option>                       
                      </select>
             </td></tr> 
-             <tr><td><input type="submit" value="Preview"></td><td><input type="image" src="success.png"></td></tr>
+             <tr><td><input name="s1" type="submit" value="Preview"></td><td><a href="assemble6.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
               
           </table>
       </form>
       
   </div>
+  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Ram"); while(rs.next()){%>
+      <img src="<% out.println(rs.getString(5));%>">
+          <h2><% out.println(rs.getString(2));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
+          <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a>
+      <% } %></div>
+  
    <!-- Start of Page Footer -->
   <div id="page_footer">
     <div id="product_brands">

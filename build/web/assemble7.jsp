@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Assemble.AssembleBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -103,9 +105,9 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your External Hard Disk : </p>
-      <form>
+      <form method="post" action="selexternalhdd">
           <table>
-             <tr><td><select name="">
+             <tr><td><select name="chooseexternalhdd">
                         <option value="default">Choose Your Item</option>
                         <option value="HITACHI TOURO MOBILE 2.5 INCH 1 TB EXTERNAL HDD">HITACHI TOURO MOBILE 2.5 INCH 1 TB EXTERNAL HDD</option>
                         <option value="HITACHI TOURO 2.5 INCH 1 TB EXTERNAL HDD">HITACHI TOURO 2.5 INCH 1 TB EXTERNAL HDD</option>
@@ -151,12 +153,19 @@
                         <option value="SEAGATE BLACKARMOR NAS 220(2BAY) 2TB NETWORK HDD">SEAGATE BLACKARMOR NAS 220(2BAY) 2TB NETWORK HDD</option>
                      </select>
             </td></tr> 
-             <tr><td><input type="submit" value="Preview"></td><td><input type="image" src="success.png"></td></tr>
+             <tr><td><input name="s1" type="submit" value="Preview"></td><td><a href="assemble8.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
               
           </table>
       </form>
       
   </div>
+  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Externalhdd"); while(rs.next()){%>
+      <img src="<% out.println(rs.getString(5));%>">
+          <h2><% out.println(rs.getString(2));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
+          <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a>
+      <% } %></div>
+  
    <!-- Start of Page Footer -->
   <div id="page_footer">
     <div id="product_brands">

@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Assemble.AssembleBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -103,9 +105,9 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your Graphics Card : </p>
-      <form>
+      <form method="post" action="selgraphicscard">
           <table>
-             <tr><td><select name="">
+             <tr><td><select name="choosegraphicscard">
                         <option value="default">Choose Your Item</option>
                         <option value="ASUS AMD/ATI HD 6670 1GB GDDR5 GRAPHICS CARD">ASUS AMD/ATI HD 6670 1GB GDDR5 GRAPHICS CARD</option>
                         <option value="SAPHIRE AMD/ATI HD 7750 1GB GDDR5 GRAPHICS CARD">SAPHIRE AMD/ATI HD 7750 1GB GDDR5 GRAPHICS CARD</option>
@@ -207,12 +209,18 @@
                         <option value="ZOTAC NVIDIA 210 TC-PCI-E 1GB DDR3 GRAPHICS CARD">ZOTAC NVIDIA 210 TC-PCI-E 1GB DDR3 GRAPHICS CARD</option>                        
                      </select>
             </td></tr> 
-             <tr><td><input type="submit" value="Preview"></td><td><input type="image" src="success.png"></td></tr>
+             <tr><td><input name="s1" type="submit" value="Preview"></td><td><a href="assemble12.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
               
           </table>
       </form>
       
   </div>
+  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"graphicscard"); while(rs.next()){%>
+      <img src="<% out.println(rs.getString(5));%>">
+          <h2><% out.println(rs.getString(2));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
+          <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a>
+      <% } %></div>
    <!-- Start of Page Footer -->
   <div id="page_footer">
     <div id="product_brands">

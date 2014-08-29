@@ -117,7 +117,7 @@
       
       <img src="<% out.println(rs.getString(5));%>">
           <h2><% out.println(rs.getString(2));%></h2>
-          <h2 class="money"><% out.println(rs.getString(3));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
           <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a><% } %>
       </div>
    <!-- Start of Page Footer -->

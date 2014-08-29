@@ -1,3 +1,5 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Assemble.AssembleBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -103,9 +105,9 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your Sound Card : </p>
-      <form>
+      <form action="selsoundcard" method="post">
           <table>
-             <tr><td><select name="">
+             <tr><td><select name="choosesoundcard">
                         <option value="default">Choose Your Item</option>
                         <option value="CREATIVE SOUND BLASTER 5.1 VX SOUND CARD">CREATIVE SOUND BLASTER 5.1 VX SOUND CARD</option>     
                         <option value="ENTER USB SOUND CARD(BLACK)">ENTER USB SOUND CARD(BLACK)</option>     
@@ -119,12 +121,18 @@
                         <option value="CREATIVE SOUND BLASTER X-FI SURROUND 5.1 PRO USB SOUND CARD(BLACK)">CREATIVE SOUND BLASTER X-FI SURROUND 5.1 PRO USB SOUND CARD(BLACK)</option> 
                      </select>
             </td></tr> 
-             <tr><td><input type="submit" value="Preview"></td><td><input type="image" src="success.png"></td></tr>
+             <tr><td><input name="s1" type="submit" value="Preview"></td><td><a href="assemble16.jsp">Skip this one</a></td><td><input type="image" src="success.png"></td></tr>
               
           </table>
       </form>
       
   </div>
+  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Soundcard"); while(rs.next()){%>
+      <img src="<% out.println(rs.getString(5));%>">
+          <h2><% out.println(rs.getString(2));%></h2>
+          <h2 class="money"><% out.println(rs.getInt(3));%></h2>
+          <a href="<% out.println(rs.getString(6));%>">Click to view full description of the product</a>
+      <% } %></div>
    <!-- Start of Page Footer -->
   <div id="page_footer">
     <div id="product_brands">

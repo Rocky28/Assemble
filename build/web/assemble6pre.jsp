@@ -102,7 +102,7 @@
   <!-- End of Left Sidebar -->
   <div id="assemble1">
       <p class="p1">Choose your Internal Hard Disk : </p>
-      <form name="frm" action="preview" method="get">
+      <form name="" action="selinternalhdd" method="post">
           <table>
              <tr><td><select name="s1">
                         <option value="default">Choose Your Item</option>
@@ -117,19 +117,18 @@
                         <option value="SEAGATE CONSTELLATION ES 2TB DESKTOP INTERNAL HDD">SEAGATE CONSTELLATION ES 2TB DESKTOP INTERNAL HDD</option>
                         <option value="SEAGATE BARRACUDA SV-35 3TB DESKTOP INTERNAL HDD">SEAGATE BARRACUDA SV-35 3TB DESKTOP INTERNAL HDD</option>                        
                      </select>
-            </td></tr> </table>
-          <input id="img1" type="image" src="preview.gif"></form><form name="frm" action="next" method="get"><input id="img2" type="image" src=" next.jpg">
+            </td></tr> 
+                    <tr><td><input name="s1" type="submit" value="Preview"></td><td><a href="assemble2.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
               
-          
+          </table>
       </form>
-      
   </div>
-  <div id="preview">
-      <h1>Preview</h1>
-          <img src="images/cooler-master-gx-550w-100x100-imad67hgdtmdnzgz.jpeg">
-          <h2>SEAGATE BARRACUDA 1TB DESKTOP INTERNAL HDD</h2>
-          <h2 class="money">Rs. 5000</h2>
-          <a href="<%%>">Click to view full description in flipkart.com</a>
+      
+      <div id="preview"><%HttpSession s=request.getSession(true);%>
+          <img src="<% out.println((String)s.getAttribute("imgurl")); %>">
+          <h2><% out.println((String)s.getAttribute("cmpname")); %></h2>
+          <h3><% out.println(s.getAttribute("price")); %></h3>
+          <a href="<% out.println((String)s.getAttribute("link")); %>">Click to view full description in Flipkart.com</a>
       </div>
    <!-- Start of Page Footer -->
   <div id="page_footer">
