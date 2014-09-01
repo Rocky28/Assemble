@@ -56,6 +56,9 @@ public class selmotherboard extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
             if(motherboard==null)
             {
                 String cmp=(String)s.getAttribute("cmpname");            
@@ -74,6 +77,29 @@ public class selmotherboard extends HttpServlet {
                 ob.insertUpdateMotherboard(motherboard, price, "sinha.aot@gmail.com");
             }
             response.sendRedirect("assemble3.jsp");
+            }
+            else
+            {
+                if(motherboard==null)
+            {
+                String cmp=(String)s.getAttribute("cmpname");            
+                int price=(Integer)(s.getAttribute("price"));
+                
+                if(cmp==null)
+                {
+                    s.setAttribute("mistake", "yes");
+                    response.sendRedirect("assemble2.jsp");
+                }
+                ob.insertUpdateReviewMotherboard(cmp, price, "sinha.aot@gmail.com");
+            }
+            else
+            {
+                int price=ob.getMotherboardPrice(motherboard);
+                ob.insertUpdateReviewMotherboard(motherboard, price, "sinha.aot@gmail.com");
+            }
+            response.sendRedirect("your_order.jsp");
+            
+            }
         }
     //    processRequest(request, response);
     }

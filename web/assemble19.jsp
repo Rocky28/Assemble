@@ -128,7 +128,7 @@
                         <option value="ZEBRONICS ZEB-UP2011 USB EXTERNAL TV TUNER CARD">ZEBRONICS ZEB-UP2011 USB EXTERNAL TV TUNER CARD</option>
                      </select>
             </td></tr> 
-             <tr><tr><td><input name="s1" type="submit" value="Preview"></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
+             <tr><td><input type="submit" value="Preview" name="s1"><input type="image" src="success.png" value="success" name="s2"></td></tr>
               
           </table>
       </form>

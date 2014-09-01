@@ -119,14 +119,14 @@
                         <option value="SEAGATE CONSTELLATION ES 2TB DESKTOP INTERNAL HDD">SEAGATE CONSTELLATION ES 2TB DESKTOP INTERNAL HDD</option>
                         <option value="SEAGATE BARRACUDA SV-35 3TB DESKTOP INTERNAL HDD">SEAGATE BARRACUDA SV-35 3TB DESKTOP INTERNAL HDD</option>                        
                      </select>
-            </td></tr>          <tr><td><input name="s1" type="submit" value="Preview"></td><td><a href="assemble7.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="success"></td></tr>
+            </td></tr>                 <tr><td><input type="submit" value="Preview" name="s1"></td><% HttpSession s=request.getSession(true); String from=(String)s.getAttribute("from"); if(from==null){%><td><a href="assemble7.jsp">Skip This One</a></td><% } %><td><input type="image" src="success.png" value="success" name="s2"></td></tr>
               
           </table>
       </form>
       
       
   </div>
-  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Internalhdd"); while(rs.next()){%>
+  <div id="preview"><% String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Internalhdd"); while(rs.next()){%>
       <img src="<% out.println(rs.getString(5));%>">
           <h2><% out.println(rs.getString(2));%></h2>
           <h2 class="money"><% out.println(rs.getInt(3));%></h2>

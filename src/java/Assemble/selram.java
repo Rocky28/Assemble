@@ -57,6 +57,9 @@ public class selram extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
             if(processor==null)
             {
                 String cmp=(String)s.getAttribute("cmpname");            
@@ -75,6 +78,29 @@ public class selram extends HttpServlet {
                 ob.insertUpdateRam(processor, price, "sinha.aot@gmail.com");
             }
             response.sendRedirect("assemble6.jsp");
+            }
+            else
+            {
+                if(processor==null)
+            {
+                String cmp=(String)s.getAttribute("cmpname");            
+                int price=(Integer)(s.getAttribute("price"));
+                
+                if(cmp==null)
+                {
+                    s.setAttribute("mistake", "yes");
+                    response.sendRedirect("assemble5.jsp");
+                }
+                ob.insertUpdateReviewRam(cmp, price, "sinha.aot@gmail.com");
+            }
+            else
+            {
+                int price=ob.getRamPrice(processor);
+                ob.insertUpdateReviewRam(processor, price, "sinha.aot@gmail.com");
+            }
+            response.sendRedirect("your_order.jsp");
+            
+            }
         }
     //    processRequest(request, response);
     }

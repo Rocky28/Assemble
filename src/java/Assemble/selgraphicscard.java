@@ -58,6 +58,9 @@ public class selgraphicscard extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
             if(processor==null)
             {
                 String cmp=(String)s.getAttribute("cmpname");            
@@ -76,6 +79,28 @@ public class selgraphicscard extends HttpServlet {
                 ob.insertUpdateGraphicscard(processor, price, "sinha.aot@gmail.com");
             }
             response.sendRedirect("assemble12.jsp");
+            }
+            else
+            {
+                if(processor==null)
+            {
+                String cmp=(String)s.getAttribute("cmpname");            
+                int price=(Integer)(s.getAttribute("price"));
+                
+                if(cmp==null)
+                {
+                    s.setAttribute("mistake", "yes");
+                    response.sendRedirect("assemble11.jsp");
+                }
+                ob.insertUpdateReviewGraphicscard(cmp, price, "sinha.aot@gmail.com");
+            }
+            else
+            {
+                int price=ob.getGraphicscardPrice(processor);
+                ob.insertUpdateReviewGraphicscard(processor, price, "sinha.aot@gmail.com");
+            }
+            response.sendRedirect("your_order.jsp");
+            }
         }
     //    processRequest(request, response);
     }

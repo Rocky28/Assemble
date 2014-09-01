@@ -144,13 +144,13 @@
                         <option value="LIVE TECH CABINET NEW DELHI WITH SMPS">LIVE TECH CABINET NEW DELHI WITH SMPS</option>
                      </select>
             </td></tr> 
-             <tr><td><input type="submit" value="Preview" name="s1"></td><td><a href="assemble2.jsp">Skip This One</a></td><td><input type="image" src="success.png" value="success" name="s2"></td></tr>
+             <tr><td><input type="submit" value="Preview" name="s1"></td><% HttpSession s=request.getSession(true); String from=(String)s.getAttribute("from"); if(from==null){%><td><a href="assemble2.jsp">Skip This One</a></td><% } %><td><input type="image" src="success.png" value="success" name="s2"></td></tr>
               
           </table>
       </form>
       
   </div>
-  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Cabinets"); while(rs.next()){%>
+  <div id="preview"><% String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Cabinets"); while(rs.next()){%>
       <img src="<% out.println(rs.getString(5));%>">
           <h2><% out.println(rs.getString(2));%></h2>
           <h2 class="money"><% out.println(rs.getInt(3));%></h2>

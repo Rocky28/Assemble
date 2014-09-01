@@ -57,6 +57,9 @@ public class selups extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
             if(processor==null)
             {
                 String cmp=(String)s.getAttribute("cmpname");            
@@ -75,6 +78,29 @@ public class selups extends HttpServlet {
                 ob.insertUpdateUps(processor, price, "sinha.aot@gmail.com");
             }
             response.sendRedirect("assemble19.jsp");
+            }
+            else
+            {
+            if(processor==null)
+            {
+                String cmp=(String)s.getAttribute("cmpname");            
+                int price=(Integer)(s.getAttribute("price"));
+                
+                if(cmp==null)
+                {
+                    s.setAttribute("mistake", "yes");
+                    response.sendRedirect("assemble18.jsp");
+                }
+                ob.insertUpdateReviewUps(cmp, price, "sinha.aot@gmail.com");
+            }
+            else
+            {
+                int price=ob.getUpsPrice(processor);
+                ob.insertUpdateReviewUps(processor, price, "sinha.aot@gmail.com");
+            }
+            response.sendRedirect("your_order.jsp");
+                
+            }
         }
     //    processRequest(request, response);
     }

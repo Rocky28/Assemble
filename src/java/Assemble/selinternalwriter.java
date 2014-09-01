@@ -57,6 +57,9 @@ public class selinternalwriter extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
             if(processor==null)
             {
                 String cmp=(String)s.getAttribute("cmpname");            
@@ -75,6 +78,28 @@ public class selinternalwriter extends HttpServlet {
                 ob.insertUpdateInternalwriter(processor, price, "sinha.aot@gmail.com");
             }
             response.sendRedirect("assemble10.jsp");
+            }
+            else
+            {
+                if(processor==null)
+            {
+                String cmp=(String)s.getAttribute("cmpname");            
+                int price=(Integer)(s.getAttribute("price"));
+                
+                if(cmp==null)
+                {
+                    s.setAttribute("mistake", "yes");
+                    response.sendRedirect("assemble9.jsp");
+                }
+                ob.insertUpdateReviewInternalwriter(cmp, price, "sinha.aot@gmail.com");
+            }
+            else
+            {
+                int price=ob.getInternalwriterPrice(processor);
+                ob.insertUpdateReviewInternalwriter(processor, price, "sinha.aot@gmail.com");
+            }
+            response.sendRedirect("your_order.jsp");
+            }
         }
     //    processRequest(request, response);
     }

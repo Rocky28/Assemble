@@ -57,6 +57,35 @@ public class seltvtuner extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
+            if(processor.equals("default"))
+            {
+                int price=0;
+                String cmp=(String)s.getAttribute("cmpname");            
+                try{price=(Integer)(s.getAttribute("price"));}catch(Exception e){}
+                
+                if(cmp==null)
+                {
+                    ob.updateOrderStatus("sinha.aot@gmail.com");
+                    response.sendRedirect("your_order.jsp");
+                }
+                ob.insertUpdateTvtuner(cmp, price, "sinha.aot@gmail.com");
+                ob.updateOrderStatus("sinha.aot@gmail.com");
+                
+            }
+            else
+            {
+                
+                int price=ob.getTvtunerPrice(processor);
+                ob.insertUpdateTvtuner(processor, price, "sinha.aot@gmail.com");
+                ob.updateOrderStatus("sinha.aot@gmail.com");
+            }
+            response.sendRedirect("your_order.jsp");
+            }
+            else
+            {
             if(processor==null)
             {
                 int price=0;
@@ -68,17 +97,18 @@ public class seltvtuner extends HttpServlet {
                     ob.updateOrderStatus("sinha.aot@gmail.com");
                     response.sendRedirect("your_order.jsp");
                 }
-                ob.updateOrderStatus("sinha.aot@gmail.com");
-                ob.insertUpdateTvtuner(cmp, price, "sinha.aot@gmail.com");
+                
+                ob.insertUpdateReviewTvtuner(cmp, price, "sinha.aot@gmail.com");
             }
             else
             {
                 
                 int price=ob.getTvtunerPrice(processor);
-                ob.insertUpdateTvtuner(processor, price, "sinha.aot@gmail.com");
-                ob.updateOrderStatus("sinha.aot@gmail.com");
+                ob.insertUpdateReviewTvtuner(processor, price, "sinha.aot@gmail.com");
+                
             }
-            response.sendRedirect("your_order.jsp");
+            response.sendRedirect("your_order.jsp");                
+            }
         }
     //    processRequest(request, response);
     }

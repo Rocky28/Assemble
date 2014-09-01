@@ -57,6 +57,9 @@ public class selexternalhdd extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
             if(cabinet==null)
             {
                 String cmp=(String)s.getAttribute("cmpname");            
@@ -75,6 +78,28 @@ public class selexternalhdd extends HttpServlet {
                 ob.insertUpdateExternalhdd(cabinet, price, "sinha.aot@gmail.com");
             }
             response.sendRedirect("assemble8.jsp");
+            }
+            else
+            {
+             if(cabinet==null)
+            {
+                String cmp=(String)s.getAttribute("cmpname");            
+                int price=(Integer)(s.getAttribute("price"));
+                
+                if(cmp==null)
+                {
+                    s.setAttribute("mistake", "yes");
+                    response.sendRedirect("assemble7.jsp");
+                }
+                ob.insertUpdateReviewExternalhdd(cmp, price, "sinha.aot@gmail.com");
+            }
+            else
+            {
+                int price=ob.getExternalhddPrice(cabinet);
+                ob.insertUpdateReviewExternalhdd(cabinet, price, "sinha.aot@gmail.com");
+            }   
+             response.sendRedirect("your_order.jsp");
+            }
         }
     //    processRequest(request, response);
     }

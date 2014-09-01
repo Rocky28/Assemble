@@ -258,13 +258,13 @@
                         <option value="MSI X58 PRO-E MOTHERBOARD">MSI X58 PRO-E MOTHERBOARD</option>                        
                      </select>
             </td></tr> 
-             <tr><td><input type="submit" value="Preview" name="s1"></td><td><a href="assemble3.jsp">Skip this one</a></td><td><input type="image" src="success.png" name="s2" value="succes"></td></tr>
+             <tr><td><input type="submit" value="Preview" name="s1"></td><% HttpSession s=request.getSession(true); String from=(String)s.getAttribute("from"); if(from==null){%><td><a href="assemble3.jsp">Skip This One</a></td><% } %><td><input type="image" src="success.png" value="success" name="s2"></td></tr>
               
           </table>
       </form>
       
   </div>
-  <div id="preview"><% HttpSession s=request.getSession(true);String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Motherboards"); while(rs.next()){%>
+  <div id="preview"><% String type=(String)s.getAttribute("type"); AssembleBean ob=new AssembleBean();ResultSet rs=ob.getTypeResults(type,"Motherboards"); while(rs.next()){%>
       <img src="<% out.println(rs.getString(5));%>">
           <h2><% out.println(rs.getString(2));%></h2>
           <h2 class="money"><% out.println(rs.getInt(3));%></h2>

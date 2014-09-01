@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="82579801-6b1f-4e31-96f7-21ab09b32b9e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="495"/>
+	<parameter name="tid" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select a.emailaddress,a.dnt,a.cabinet,a.motherboard,a.processor,a.internalhdd,a.externalhdd,a.ssd,a.ram,a.internalwriter,a.externalwriter,a.monitor,a.graphicscard,a.keyboard,a.mouse,a.psu,a.soundcard,a.speaker,a.webcam,a.ups,a.tvtuner,a.totalcost	from assembleorder a where a.totalcost=$P{tid}]]>
+	</queryString>
+	<field name="emailaddress" class="java.lang.String"/>
+	<field name="dnt" class="java.lang.String"/>
+	<field name="cabinet" class="java.lang.String"/>
+	<field name="motherboard" class="java.lang.String"/>
+	<field name="processor" class="java.lang.String"/>
+	<field name="internalhdd" class="java.lang.String"/>
+	<field name="externalhdd" class="java.lang.String"/>
+	<field name="ssd" class="java.lang.String"/>
+	<field name="ram" class="java.lang.String"/>
+	<field name="internalwriter" class="java.lang.String"/>
+	<field name="externalwriter" class="java.lang.String"/>
+	<field name="monitor" class="java.lang.String"/>
+	<field name="graphicscard" class="java.lang.String"/>
+	<field name="keyboard" class="java.lang.String"/>
+	<field name="mouse" class="java.lang.String"/>
+	<field name="soundcard" class="java.lang.String"/>
+	<field name="speaker" class="java.lang.String"/>
+	<field name="webcam" class="java.lang.String"/>
+	<field name="ups" class="java.lang.String"/>
+	<field name="psu" class="java.lang.String"/>
+	<field name="tvtuner" class="java.lang.String"/>
+	<field name="totalcost" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="703" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="26" width="100" height="20" uuid="a29f739e-e9a9-4221-8822-d961c4749e85"/>
+				<text><![CDATA[Cabinet		]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="60" width="100" height="20" uuid="81f32ad8-2c3f-4abf-83e8-106286234f6f"/>
+				<text><![CDATA[Motherboard]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="93" width="100" height="20" uuid="bc201a19-b385-43ff-bb97-7a67c76f5da6"/>
+				<text><![CDATA[Processor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="125" width="100" height="20" uuid="e97881c0-40f5-4814-a28d-54fd80671d2d"/>
+				<text><![CDATA[Internal Hdd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="217" width="100" height="20" uuid="f786da9a-a10b-4eda-8e27-a9145cf5f5b3"/>
+				<text><![CDATA[Monitor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="187" width="100" height="20" uuid="f899178e-1736-4eeb-9765-9c47744b9bc1"/>
+				<text><![CDATA[Ram]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="156" width="100" height="20" uuid="405c0bcc-c573-44fc-beb4-7f0b6f334a8f"/>
+				<text><![CDATA[External Hdd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="353" width="100" height="20" uuid="a8649e3c-8bf7-48ee-bc2b-08d2fd3569d5"/>
+				<text><![CDATA[Internal Writer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="317" width="100" height="20" uuid="2add2e14-3c92-4dfd-99a8-247c2705d918"/>
+				<text><![CDATA[Mouse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="282" width="100" height="20" uuid="41ab0cd2-472a-4ea2-b95f-83bcb7e0b475"/>
+				<text><![CDATA[Keyboard]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="249" width="100" height="20" uuid="a06b6cc3-8217-4af7-a120-c40db3cef7e9"/>
+				<text><![CDATA[Graphics Card]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="453" width="100" height="20" uuid="c54402fd-781d-4ad8-9511-3de228f1efdf"/>
+				<text><![CDATA[Speaker]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="418" width="100" height="20" uuid="73f046af-85f2-404a-b6f1-6f04f5f31a66"/>
+				<text><![CDATA[Sound Card]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="384" width="100" height="20" uuid="47b5ba67-892c-4c6b-acae-65ffd651018c"/>
+				<text><![CDATA[External Writer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="618" width="100" height="20" uuid="efa471da-47b0-4293-a838-303cb142672a"/>
+				<text><![CDATA[Web Cam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="586" width="100" height="20" uuid="073251da-6f3f-428d-b28b-1226e05a405c"/>
+				<text><![CDATA[Ssd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="552" width="100" height="20" uuid="7ff95201-7f24-4ad1-816b-24909cd92f06"/>
+				<text><![CDATA[Tv Tuner Card]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="518" width="100" height="20" uuid="23a2fbe8-a2f1-4118-9961-782920d98c9f"/>
+				<text><![CDATA[Ups]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="486" width="100" height="20" uuid="ab5cd370-843e-4bbf-898b-aa81bb79688e"/>
+				<text><![CDATA[Psu]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="162" y="26" width="376" height="20" uuid="34b8855b-3152-4982-9dce-ab4bf8fcad00"/>
+				<textFieldExpression><![CDATA[$F{cabinet}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="60" width="376" height="20" uuid="b946fdab-a0db-42b0-ab8a-02657d14407d"/>
+				<textFieldExpression><![CDATA[$F{motherboard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="93" width="376" height="20" uuid="d09a7b06-8d68-4d5d-a830-bba7a5eb2dce"/>
+				<textFieldExpression><![CDATA[$F{processor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="125" width="376" height="20" uuid="da532fb6-8a22-48f6-a6a4-36196d06e71c"/>
+				<textFieldExpression><![CDATA[$F{internalhdd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="156" width="376" height="20" uuid="36383b48-1b55-475c-9def-553cd64397e9"/>
+				<textFieldExpression><![CDATA[$F{externalhdd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="187" width="376" height="20" uuid="0957e82b-bdc9-4943-bcb4-821f4d7dc504"/>
+				<textFieldExpression><![CDATA[$F{ram}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="217" width="376" height="20" uuid="c94bf150-af4c-4194-84b6-8ba61722ab36"/>
+				<textFieldExpression><![CDATA[$F{monitor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="249" width="376" height="20" uuid="34411c4d-6340-428e-926a-bcc1946c0e15"/>
+				<textFieldExpression><![CDATA[$F{graphicscard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="282" width="376" height="20" uuid="398a0dc3-4308-49fe-8b2b-e2c7a4860ebb"/>
+				<textFieldExpression><![CDATA[$F{keyboard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="317" width="376" height="20" uuid="f757af0d-6ffb-4b61-9d38-5308341738e9"/>
+				<textFieldExpression><![CDATA[$F{mouse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="353" width="376" height="20" uuid="98afd3c2-26b6-4e1a-94bb-4359a4750424"/>
+				<textFieldExpression><![CDATA[$F{internalwriter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="384" width="376" height="20" uuid="37c64c60-e510-4a48-afaf-7f54814ea934"/>
+				<textFieldExpression><![CDATA[$F{externalwriter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="418" width="376" height="20" uuid="1fc1e9b1-bd36-437f-b4fb-f5cedf0769c6"/>
+				<textFieldExpression><![CDATA[$F{soundcard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="453" width="376" height="20" uuid="8400e6fa-e7eb-43c9-9700-2277b33c82da"/>
+				<textFieldExpression><![CDATA[$F{speaker}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="486" width="376" height="20" uuid="e5b1acab-2ffa-4c8b-8b82-e5c470951ba2"/>
+				<textFieldExpression><![CDATA[$F{psu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="518" width="376" height="20" uuid="83f35bf4-5ca7-4248-aade-ca861e0cbbf4"/>
+				<textFieldExpression><![CDATA[$F{ups}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="552" width="376" height="20" uuid="7ad08acb-493f-4681-af79-eb9e82c287b1"/>
+				<textFieldExpression><![CDATA[$F{tvtuner}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="586" width="376" height="20" uuid="43df8f7f-ca0a-4aea-b286-26887ed10bf4"/>
+				<textFieldExpression><![CDATA[$F{ssd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="618" width="376" height="20" uuid="752c8bdc-a375-4d80-8b7b-c17f4b921b18"/>
+				<textFieldExpression><![CDATA[$F{webcam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="650" width="170" height="20" uuid="c17b1c9f-eb32-4c10-a832-a9931cb1fd25"/>
+				<textFieldExpression><![CDATA[$F{totalcost}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="650" width="191" height="20" uuid="bedb37f3-40b8-4b4e-8e6a-feaabffbe6d3"/>
+				<textFieldExpression><![CDATA[$F{emailaddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="650" width="126" height="20" uuid="8afb07fd-5ec0-45ce-9cc2-b0fd6150a61b"/>
+				<text><![CDATA[Email Address]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

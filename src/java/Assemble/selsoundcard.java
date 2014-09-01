@@ -57,6 +57,9 @@ public class selsoundcard extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
             if(processor==null)
             {
                 String cmp=(String)s.getAttribute("cmpname");            
@@ -75,6 +78,29 @@ public class selsoundcard extends HttpServlet {
                 ob.insertUpdateSoundcard(processor, price, "sinha.aot@gmail.com");
             }
             response.sendRedirect("assemble16.jsp");
+            }
+            else
+            {
+             if(processor==null)
+            {
+                String cmp=(String)s.getAttribute("cmpname");            
+                int price=(Integer)(s.getAttribute("price"));
+                
+                if(cmp==null)
+                {
+                    s.setAttribute("mistake", "yes");
+                    response.sendRedirect("assemble15.jsp");
+                }
+                ob.insertUpdateReviewSoundcard(cmp, price, "sinha.aot@gmail.com");
+            }
+            else
+            {
+                int price=ob.getSoundcardPrice(processor);
+                ob.insertUpdateReviewSoundcard(processor, price, "sinha.aot@gmail.com");
+            }
+            response.sendRedirect("your_order.jsp");
+               
+            }
         }
     //    processRequest(request, response);
     }

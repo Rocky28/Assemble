@@ -58,6 +58,9 @@ public class selwebcam extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
             if(processor==null)
             {
                 String cmp=(String)s.getAttribute("cmpname");            
@@ -76,6 +79,28 @@ public class selwebcam extends HttpServlet {
                 ob.insertUpdateWebcam(processor, price, "sinha.aot@gmail.com");
             }
             response.sendRedirect("assemble18.jsp");
+            }
+            else
+            {
+                if(processor==null)
+            {
+                String cmp=(String)s.getAttribute("cmpname");            
+                int price=(Integer)(s.getAttribute("price"));
+                
+                if(cmp==null)
+                {
+                    s.setAttribute("mistake", "yes");
+                    response.sendRedirect("assemble17.jsp");
+                }
+                ob.insertUpdateReviewWebcam(cmp, price, "sinha.aot@gmail.com");
+            }
+            else
+            {
+                int price=ob.getWebcamPrice(processor);
+                ob.insertUpdateReviewWebcam(processor, price, "sinha.aot@gmail.com");
+            }
+            response.sendRedirect("your_order.jsp");
+            }
         }
     //    processRequest(request, response);
     }

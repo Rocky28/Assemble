@@ -303,6 +303,25 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+        public void insertUpdateReviewCabinet(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set cabinet=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
     public int getCabinetPrice(String cmp)
     {
         int price=0;
@@ -343,6 +362,26 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+        public void insertUpdateReviewMotherboard(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Motherboard=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+
     public int getMotherboardPrice(String cmp)
     {
         int price=0;
@@ -379,6 +418,25 @@ public class AssembleBean {
             ps.setString(1, cmpname);
             ps.setInt(2, newprice);
             ps.setString(3, "Ongoing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    public void insertUpdateReviewProcessor(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Processor=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
             ps.setString(4, em.trim());
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
@@ -423,6 +481,25 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+    public void insertUpdateReviewInternalhdd(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Internalhdd=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
     public int getInternalhddPrice(String cmp)
     {
         int price=0;
@@ -463,6 +540,26 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+    public void insertUpdateReviewExternalhdd(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Externalhdd=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    
     public int getExternalhddPrice(String cmp)
     {
         int price=0;
@@ -499,6 +596,25 @@ public class AssembleBean {
             ps.setString(1, cmpname);
             ps.setInt(2, newprice);
             ps.setString(3, "Ongoing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    public void insertUpdateReviewRam(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Ram=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
             ps.setString(4, em.trim());
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
@@ -543,6 +659,25 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+    public void insertUpdateReviewSsd(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set ssd=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
     public int getSsdPrice(String cmp)
     {
         int price=0;
@@ -583,6 +718,26 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+    public void insertUpdateReviewInternalwriter(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Internalwriter=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    
     public int getInternalwriterPrice(String cmp)
     {
         int price=0;
@@ -619,6 +774,25 @@ public class AssembleBean {
             ps.setString(1, cmpname);
             ps.setInt(2, newprice);
             ps.setString(3, "Ongoing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+     public void insertUpdateReviewExternalwriter(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Externalwriter=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
             ps.setString(4, em.trim());
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
@@ -663,6 +837,26 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+     public void insertUpdateReviewMonitor(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Monitor=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+   
     public int getMonitorPrice(String cmp)
     {
         int price=0;
@@ -699,6 +893,25 @@ public class AssembleBean {
             ps.setString(1, cmpname);
             ps.setInt(2, newprice);
             ps.setString(3, "Ongoing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    public void insertUpdateReviewGraphicscard(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Graphicscard=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
             ps.setString(4, em.trim());
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
@@ -743,6 +956,25 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+    public void insertUpdateReviewKeyboard(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Keyboard=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
     public int getKeyboardPrice(String cmp)
     {
         int price=0;
@@ -779,6 +1011,25 @@ public class AssembleBean {
             ps.setString(1, cmpname);
             ps.setInt(2, newprice);
             ps.setString(3, "Ongoing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    public void insertUpdateReviewMouse(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Mouse=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
             ps.setString(4, em.trim());
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
@@ -823,6 +1074,26 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+    public void insertUpdateReviewPsu(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set psu=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    
     public int getPsuPrice(String cmp)
     {
         int price=0;
@@ -859,6 +1130,25 @@ public class AssembleBean {
             ps.setString(1, cmpname);
             ps.setInt(2, newprice);
             ps.setString(3, "Ongoing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    public void insertUpdateReviewSoundcard(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Soundcard=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
             ps.setString(4, em.trim());
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
@@ -903,6 +1193,25 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+    public void insertUpdateReviewSpeaker(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Speaker=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
     public int getSpeakerPrice(String cmp)
     {
         int price=0;
@@ -924,7 +1233,7 @@ public class AssembleBean {
         }catch(Exception e){}
         return rs;
     }
-    public void insertUpdateWebcam(String cmpname,int price,String em)
+     public void insertUpdateWebcam(String cmpname,int price,String em)
     {
         try{
             ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
@@ -939,6 +1248,25 @@ public class AssembleBean {
             ps.setString(1, cmpname);
             ps.setInt(2, newprice);
             ps.setString(3, "Ongoing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    public void insertUpdateReviewWebcam(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Webcam=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
             ps.setString(4, em.trim());
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
@@ -983,6 +1311,26 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+    public void insertUpdateReviewUps(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set ups=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    
     public int getUpsPrice(String cmp)
     {
         int price=0;
@@ -1011,8 +1359,9 @@ public class AssembleBean {
             ps.setString(1,em.trim());
             ps.setString(2, "Ongoing");
             rs=ps.executeQuery();
-            rs.next();
-            int oldprice=rs.getInt(1);
+            int oldprice=0;
+            if(rs.next()){
+            oldprice=rs.getInt(1);}
             int newprice=oldprice+price;
             System.out.println(newprice);
             ps=db.prepareStatement("update assembleorder set Tvtuner=?,totalcost=? where status=? and emailaddress=?");
@@ -1023,6 +1372,26 @@ public class AssembleBean {
             ps.executeUpdate();
         }catch(Exception e){System.out.println(e);}
     }
+    public void insertUpdateReviewTvtuner(String cmpname,int price,String em)
+    {
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1,em.trim());
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            int oldprice=rs.getInt(1);
+            int newprice=oldprice+price;
+            System.out.println(newprice);
+            ps=db.prepareStatement("update assembleorder set Tvtuner=?,totalcost=? where status=? and emailaddress=?");
+            ps.setString(1, cmpname);
+            ps.setInt(2, newprice);
+            ps.setString(3, "Reviewing");
+            ps.setString(4, em.trim());
+            ps.executeUpdate();
+        }catch(Exception e){System.out.println(e);}
+    }
+    
     public int getTvtunerPrice(String cmp)
     {
         int price=0;
@@ -1040,7 +1409,7 @@ public class AssembleBean {
         try{
             ps=db.prepareStatement("select * from assembleorder where emailaddress=? and status=?");
             ps.setString(1, em);
-            ps.setString(2, "Reviewing");
+           try{ ps.setString(2, "Reviewing");}catch(Exception e2){try{ps.setString(2, "Done");}catch(Exception e1){ps.setString(2, "Ongoing");}}
             rs=ps.executeQuery();
         }catch(Exception e){}
         return rs;
@@ -1054,5 +1423,23 @@ public class AssembleBean {
             ps.setString(3, "Ongoing");
             ps.executeUpdate();
         }catch(Exception e){}
+    }
+    public int updateStatusToDone(String em)
+    {
+        int inr=0;
+        try{
+            ps=db.prepareStatement("select totalcost from assembleorder where emailaddress=? and status=?");
+            ps.setString(1, em);
+            ps.setString(2, "Reviewing");
+            rs=ps.executeQuery();
+            rs.next();
+            inr=rs.getInt(1);
+            ps=db.prepareStatement("update assembleorder set status=? where emailaddress=? and status=?");
+            ps.setString(1, "Done");
+            ps.setString(2, em);
+            ps.setString(3, "Reviewing");
+            ps.executeUpdate();
+        }catch(Exception e){}
+        return inr;
     }
 }

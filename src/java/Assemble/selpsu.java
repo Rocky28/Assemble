@@ -57,6 +57,9 @@ public class selpsu extends HttpServlet {
         }
         else
         {
+            String from=(String)s.getAttribute("from");
+            if(from==null)
+            {
             if(processor==null)
             {
                 String cmp=(String)s.getAttribute("cmpname");            
@@ -75,6 +78,29 @@ public class selpsu extends HttpServlet {
                 ob.insertUpdatePsu(processor, price, "sinha.aot@gmail.com");
             }
             response.sendRedirect("assemble15.jsp");
+            }
+            else
+            {
+            if(processor==null)
+            {
+                String cmp=(String)s.getAttribute("cmpname");            
+                int price=(Integer)(s.getAttribute("price"));
+                
+                if(cmp==null)
+                {
+                    s.setAttribute("mistake", "yes");
+                    response.sendRedirect("assemble14.jsp");
+                }
+                ob.insertUpdateReviewPsu(cmp, price, "sinha.aot@gmail.com");
+            }
+            else
+            {
+                int price=ob.getPsuPrice(processor);
+                ob.insertUpdateReviewPsu(processor, price, "sinha.aot@gmail.com");
+            }
+            response.sendRedirect("your_order.jsp");
+                
+            }
         }
     //    processRequest(request, response);
     }

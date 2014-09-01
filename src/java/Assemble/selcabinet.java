@@ -61,24 +61,49 @@ public class selcabinet extends HttpServlet {
         }
         else
         {
-            if(cabinet==null)
+            String from=(String)s.getAttribute("from");
+            if(from==null)
             {
-                String cmp=(String)s.getAttribute("cmpname");            
-                int price=(Integer)(s.getAttribute("price"));
+                 if(cabinet==null)
+                 {
+                    String cmp=(String)s.getAttribute("cmpname");            
+                    int price=(Integer)(s.getAttribute("price"));
                 
-                if(cmp==null)
-                {
-                    s.setAttribute("mistake", "yes");
-                    response.sendRedirect("assemble1.jsp");
-                }
-                ob.insertUpdateCabinet(cmp, price, "sinha.aot@gmail.com");
-            }
+                    if(cmp==null)
+                    {
+                        s.setAttribute("mistake", "yes");
+                        response.sendRedirect("assemble1.jsp");
+                    }
+                    ob.insertUpdateCabinet(cmp, price, "sinha.aot@gmail.com");
+                 }
+                 else
+                 {
+                    int price=ob.getCabinetPrice(cabinet);
+                    ob.insertUpdateCabinet(cabinet, price, "sinha.aot@gmail.com");
+                 }
+                 response.sendRedirect("assemble2.jsp");
+             }
             else
             {
-                int price=ob.getCabinetPrice(cabinet);
-                ob.insertUpdateCabinet(cabinet, price, "sinha.aot@gmail.com");
+                if(cabinet==null)
+                 {
+                    String cmp=(String)s.getAttribute("cmpname");            
+                    int price=(Integer)(s.getAttribute("price"));
+                
+                    if(cmp==null)
+                    {
+                        s.setAttribute("mistake", "yes");
+                        response.sendRedirect("assemble1.jsp");
+                    }
+                    ob.insertUpdateReviewCabinet(cmp, price, "sinha.aot@gmail.com");
+                 }
+                 else
+                 {
+                    int price=ob.getCabinetPrice(cabinet);
+                    ob.insertUpdateReviewCabinet(cabinet, price, "sinha.aot@gmail.com");
+                 }
+                 response.sendRedirect("your_order.jsp");
             }
-            response.sendRedirect("assemble2.jsp");
         }
 //        processRequest(request, response);
     }
